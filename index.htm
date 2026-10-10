@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naveen Raj | Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #0b1120;
+    --card: #111c30;
+    --blue: #38bdf8;
+    --text: #f1f5f9;
+    --muted: #a3b2c7;
+    --border: #26364e;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #0b1120;
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--blue);
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: var(--blue);
+}
+
+.menu-btn {
+    display: none;
+    color: white;
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.hero {
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    padding: 65px 0;
+}
+
+.tag {
+    color: var(--blue);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+h1 {
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.highlight {
+    color: var(--blue);
+}
+
+.roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0;
+}
+
+.roles span {
+    color: var(--blue);
+    background: #112b40;
+    border: 1px solid #24465e;
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.description {
+    max-width: 650px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 9px 17px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.primary {
+    color: #07111f;
+    background: var(--blue);
+}
+
+.secondary {
+    color: var(--blue);
+    border: 1px solid var(--blue);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+section {
+    padding: 48px 0;
+    scroll-margin-top: 65px;
+}
+
+.section-title {
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+.section-title span {
+    color: var(--blue);
+}
+
+.section-intro {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 23px;
+}
+
+.about-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px;
+    color: var(--muted);
+}
+
+.about-box p + p {
+    margin-top: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    border-color: var(--blue);
+    transform: translateY(-3px);
+}
+
+.card-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    color: var(--blue);
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 13px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    background: #17344a;
+    color: #7dd3fc;
+    font-size: 11px;
+}
+
+.project-links {
+    margin-top: 14px;
+}
+
+.project-links a {
+    color: var(--blue);
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.contact-box {
+    text-align: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 20px;
+}
+
+.contact-box .description {
+    margin: auto;
+}
+
+.email {
+    display: inline-block;
+    color: var(--blue);
+    margin-top: 14px;
+    overflow-wrap: anywhere;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 18px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .navbar {
+        min-height: 60px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 18px 5%;
+        background: #111c30;
+        flex-direction: column;
+        gap: 13px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 65px 0;
+    }
+
+    section {
+        padding: 38px 0;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="container navbar">
+        <a href="#home" class="logo">Naveen.</a>
+
+        <button class="menu-btn" id="menuBtn"
+                aria-label="Open navigation"
+                aria-expanded="false">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero" id="home">
+    <div class="container">
+        <p class="tag">WELCOME TO MY PORTFOLIO</p>
+
+        <h1>Hi, I'm <span class="highlight">Naveen Raj</span></h1>
+
+        <div class="roles">
+            <span>AI/ML Engineer</span>
+            <span>AI Engineer</span>
+            <span>Software Engineer</span>
+        </div>
+
+        <p class="description">
+            I'm a B.Tech Artificial Intelligence and Data Science student
+            building my programming skills through hands-on practice.
+            My goal is to create useful software and AI applications.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn primary">View Projects</a>
+            <a href="#contact" class="btn secondary">Contact Me</a>
+        </div>
+    </div>
+</header>
+
+<main>
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">About <span>Me</span></h2>
+        <p class="section-intro">A little introduction</p>
+
+        <div class="about-box">
+            <p>
+                I'm Naveen Raj, a B.Tech AI & Data Science student
+                interested in Artificial Intelligence, Machine Learning
+                and Software Development.
+            </p>
+            <p>
+                I'm currently learning Python and web development.
+                I enjoy learning step by step and turning that knowledge
+                into practical projects.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <p class="section-intro">Technologies I'm learning and practising</p>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🐍</div>
+                <h3>Python</h3>
+                <p>Learning programming basics and problem solving.</p>
+                <span class="status">Currently Learning</span>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>HTML</h3>
+                <p>Creating the structure of web pages.</p>
+                <span class="status">Currently Learning</span>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>CSS</h3>
+                <p>Styling web pages and responsive layouts.</p>
+                <span class="status">Currently Learning</span>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>Learning interactive website features.</p>
+                <span class="status">Learning Next</span>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🗄️</div>
+                <h3>SQL</h3>
+                <p>Building knowledge of databases and queries.</p>
+                <span class="status">Learning Next</span>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>AI & Machine Learning</h3>
+                <p>My target field; developing the foundations to build AI projects.</p>
+                <span class="status">Future Goal</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">My <span>Projects</span></h2>
+        <p class="section-intro">My learning journey through practical work</p>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Personal Portfolio</h3>
+                <p>
+                    A responsive personal website built using HTML and CSS,
+                    with JavaScript for the mobile navigation menu.
+                </p>
+                <span class="status">In Progress</span>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Student Data Analysis</h3>
+                <p>
+                    A planned Python project to explore student data
+                    and understand simple data patterns.
+                </p>
+                <span class="status">Planned</span>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3>Machine Learning Project</h3>
+                <p>
+                    A future project to learn how a machine learning
+                    model makes predictions from data.
+                </p>
+                <span class="status">Planned</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="contact-box">
+            <h2 class="section-title">Let's <span>Connect</span></h2>
+            <p class="description">
+                Feel free to contact me for learning opportunities
+                and technology-related discussions.
+            </p>
+
+            <a class="email"
+               href="mailto:naveenrajraj884@gmail.com">
+                naveenrajraj884@gmail.com
+            </a>
+
+            <div class="buttons" style="justify-content:center">
+                <a class="btn primary"
+                   href="mailto:naveenrajraj884@gmail.com">
+                    Send Email
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer>
+    © <span id="year"></span> Naveen Raj | Personal Portfolio
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function () {
+    navLinks.classList.toggle("open");
+
+    const open = navLinks.classList.contains("open");
+    menuBtn.textContent = open ? "✕" : "☰";
+    menuBtn.setAttribute("aria-expanded", open);
+});
+
+document.querySelectorAll(".nav-links a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuBtn.textContent = "☰";
+        menuBtn.setAttribute("aria-expanded", "false");
+    });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
